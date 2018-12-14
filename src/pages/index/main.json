@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "礁岩海水到位",
+  "usingComponents": {
+    "wux-floating-button": "/static/wux/floating-button/index"
+  }
+}
