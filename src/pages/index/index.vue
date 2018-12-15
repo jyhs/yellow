@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-      <map id="map"  scale="5" @controls="controls" bindcontroltap="controltap" @markers="markers" bindmarkertap="markertap" bindregionchange="regionchange" show-location style="width: 100%; height: 580px;"></map>
-  <wux-floating-button @position="position" @theme="theme" @buttons="buttons" @change="onChange" @click="onClick" @contact="onContact" @getuserinfo="onGotUserInfo" />
+      <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controls="controls" bindcontroltap="controltap" :include-points="includePoints" :markers="markers" bindmarkertap="markertap" bindregionchange="regionchange" show-location :style="winStyle"></map>
+  <wux-floating-button :position="position" :theme="theme" :buttons="buttons" @change="onChange" @click="onClick" :contact="onContact" :getuserinfo="onGotUserInfo" />
 
   </div>
 </template>
@@ -16,6 +16,7 @@ export default {
     return {
       types: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
       typeIndex: 3,
+      scale: 10,
       colors: ['light', 'stable', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'royal', 'dark'],
       colorIndex: 4,
       buttons: [{
@@ -42,6 +43,10 @@ export default {
       centerX: 113.3245211,
       centerY: 23.10229,
       markers: [],
+      includePoints: [{
+        latitude: 30.279383,
+        longitude: 120.131441
+      }],
       controls: [{
         id: 1,
         iconPath: '/static/location-control.png',
@@ -82,6 +87,9 @@ export default {
     },
     regionchange (e) {
       console.log(e.type)
+      if (e.type === 'end') {
+        this.scale = e.scale
+      }
     },
     markertap (e) {
       console.log(e)
@@ -104,6 +112,10 @@ export default {
     createMarker (point) {
       let latitude = point.latitude
       let longitude = point.longitude
+      this.includePoints = {
+        latitude: latitude,
+        longitude: longitude
+      }
       let marker = {
         iconPath: '/image/location.png',
         id: point.id || 0,
@@ -175,9 +187,40 @@ export default {
         this.centerX = longitude
         this.centerY = latitude
         this.markers = this.getSchoolMarkers()
+        this.scale = 12
+      }
+    })
+    wx.getSystemInfo({
+      success: (res) => {
+        console.log('getSystemInfo')
+        console.log(res.windowWidth)
+        let mapWidth = res.windowWidth
+        let mapHeight = res.windowHeight
+        this.winStyle = {
+          width: mapWidth + 'px',
+          height: mapHeight + 'px'
+        }
       }
     })
   }
+  // getLngLat: function () {
+  //   this.mapCtx = wx.createMapContext('myMap')
+  //   this.mapCtx.getCenterLocation({
+  //     success: (res) => {
+  //       let longitude = res.longitude
+  //       let latitude = res.latitude
+  //       this.markers = {
+  //         iconPath: '/image/location.png',
+  //         id: res.id || 0,
+  //         name: res.name || '',
+  //         latitude: latitude,
+  //         longitude: longitude,
+  //         width: 25,
+  //         height: 48
+  //       }
+  //     }
+  //   })
+  // }
 }
 </script>
 
