@@ -1,8 +1,19 @@
 <template>
   <div class="container">
+    <wux-floating-button :position="position" :theme="theme" :buttons="buttons" @change="onChange" @click="onClick" :contact="onContact" :getuserinfo="onGotUserInfo" />
+    <wux-button block type="light"  @click="openPopup">light</wux-button>
+    <wux-popup position="bottom" :visible="popupVisible" zIndex="9999" @close="closePopup">
+      <wux-image wux-class="image" width="40px" height="40px" shape="circle" src="/static/trader1.jpg" />
+      <wux-card title="秋天的故事" extra="上海市浦东新区">
+          <wux-cell slot="body">
+            fghdjghjfghjfghjfg
+          </wux-cell>
+        <view slot="footer">
+          <wux-image wux-class="image" width="40px" height="40px" shape="circle" src="/static/wechatHL.png" />
+        </view>
+      </wux-card>
+    </wux-popup>
       <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controls="controls" bindcontroltap="controltap" :include-points="includePoints" :markers="markers" bindmarkertap="markertap" bindregionchange="regionchange" show-location :style="winStyle"></map>
-  <wux-floating-button :position="position" :theme="theme" :buttons="buttons" @change="onChange" @click="onClick" :contact="onContact" :getuserinfo="onGotUserInfo" />
-
   </div>
 </template>
 
@@ -42,6 +53,7 @@ export default {
       position: 'bottomRight',
       centerX: 113.3245211,
       centerY: 23.10229,
+      winStyle: 'width: 100%; height: 400px;',
       markers: [],
       includePoints: [{
         latitude: 30.279383,
@@ -57,7 +69,8 @@ export default {
           height: 40
         },
         clickable: true
-      }]
+      }],
+      popupVisible: false
     }
   },
 
@@ -117,7 +130,7 @@ export default {
         longitude: longitude
       }
       let marker = {
-        iconPath: '/image/location.png',
+        iconPath: '/static/location.png',
         id: point.id || 0,
         name: point.name || '',
         latitude: latitude,
@@ -134,6 +147,12 @@ export default {
           url: '/pages/index/index'
         })
       }
+    },
+    openPopup (e) {
+      this.popupVisible = true
+    },
+    closePopup (e) {
+      this.popupVisible = false
     },
     onContact (e) {
       console.log('onContact', e)
@@ -194,12 +213,13 @@ export default {
       success: (res) => {
         console.log('getSystemInfo')
         console.log(res.windowWidth)
-        let mapWidth = res.windowWidth
-        let mapHeight = res.windowHeight
-        this.winStyle = {
-          width: mapWidth + 'px',
-          height: mapHeight + 'px'
-        }
+        // let mapWidth = res.windowWidth
+        // let mapHeight = res.windowHeight
+        // this.winStyle = 'width:' + mapWidth + 'px;height:' + mapHeight + 'px;'
+        // this.winStyle = {
+        //   width: mapWidth,
+        //   height: mapHeight
+        // }
       }
     })
   }

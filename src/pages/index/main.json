@@ -1,6 +1,16 @@
 {
   "navigationBarTitleText": "礁岩海水到位",
   "usingComponents": {
-    "wux-floating-button": "/static/wux/floating-button/index"
+    "wux-floating-button": "/static/wux/floating-button/index",
+    "iview-card": "/static/iview/card/index",
+    "wux-popup": "/static/wux/popup/index",
+    "wux-card": "/static/wux/card/index",
+    "wux-row": "/static/wux/row/index",
+    "wux-col": "/static/wux/col/index",
+    "wux-image": "/static/wux/image/index",
+    "wux-cell-group": "/static/wux/cell-group/index",
+    "wux-cell": "/static/wux/cell/index",
+    "wux-input": "/static/wux/input/index",
+    "wux-button": "/static/wux/button/index"
   }
 }
