@@ -7,7 +7,9 @@
       <cover-image :src='service.iconPath' class='dw_head'></cover-image>
       <cover-view class='dw-text-body'>{{service.description}}</cover-view>
       <cover-view class='dw-text-name'>{{service.name}}</cover-view>
-      <cover-view class='dw-text-address1'>{{service.cityName}}</cover-view>
+      <cover-view class='dw-text-cityName'>{{service.cityName}}</cover-view>
+      <cover-view class='dw-text-location'>{{service.location}}</cover-view>
+      <cover-view class='dw-text-title'>{{service.title}}</cover-view>
       </div>
   </div>
 </template>
@@ -19,7 +21,10 @@ export default {
       service: {
         iconPath: 'https://api2.huanjiaohu.com/user/getAvatar?userId=5157',
         name: '',
-        cityName: ''
+        cityName: '',
+        location: '',
+        title: '',
+        description: ''
       },
       scale: 10,
       centerX: 121.475186,
@@ -139,72 +144,86 @@ export default {
 #map {
   padding: 40rpx;
 }
-.text{
-  background-color: #eee;
-}
 .dw_msg{
   width: 30px;
   height: 30px;
-  bottom:5px;
+  bottom:5%;
   position:absolute;
-  left: 5px;
+  left: 8%;
 }
 .dw_call{
   width: 70px;
   height: 30px;
-  bottom:5px;
+  bottom:5%;
   position:absolute;
-  right: 5px;
-}
-.dw-footer,.dw-footer cover-view,.dw-footer cover-image{
-  display: inline-flex;
+  right: 8%;
 }
 .bg{
-  width: 100%;
+  width: 94%;
   height: 45%;
   position: absolute;
   left: auto;
   right: auto;
-  bottom: 0;
-}
-.img-footer{
-  bottom:10px;
-  position:absolute;
-  padding-left: 60px;
-}
-.img-call{
-  padding-left: 150px;
+  bottom: 3%;
 }
 .dw-text-body{
-    width:90% ;
-    bottom: 20%;
-    position:absolute;
-    font-size:13px;
-    white-space:normal;
+  width:90% ;
+  top: 74%;
+  position:absolute;
+  font-size:12px;
+  white-space:normal;
+  left: 8%;
+  color: #777;
+  line-height:2;
 }
 .dw-text-name{
-    bottom: 32%;
-    position:absolute;
-    font-size:16px;
-    white-space:normal;
-    left: 5%;
+  width: 50%;
+  bottom: 35%;
+  position:absolute;
+  font-size:18px;
+  white-space:normal;
+  left: 8%;
+  white-space:normal;
 }
 .dw_head{
   width:49px;
   height:49px;
   border-radius:50%;
-  bottom:36%;
+  bottom:39%;
   position:absolute;
-  left:11%;
+  left:13%;
 }
-.dw-text-address1{
+.dw-text-cityName{
+  width: 25%;
+  bottom: 35%;
+  position:absolute;
+  font-size:15px;
+  white-space:normal;
+  right: 8%;
+  color:#777;
+  white-space:normal;
+  text-align:right;
+}
+.dw-text-location{
+  width: 70%;
   bottom: 32%;
   position:absolute;
-  font-size:14px;
+  font-size:12px;
   white-space:normal;
-  left: 65%;
+  left:8%;
+  color:#777;
+}
+.dw-text-title{
+  width: 70%;
+  bottom: 26%;
+  position:absolute;
+  font-size:15px;
+  white-space:normal;
+  left:8%;
+  color:rgb(17, 130, 196);
 }
 .all-bg{
-  width: 100%
+  width: 94%;
+  left: 5%;
 }
 </style>
