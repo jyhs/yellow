@@ -3,7 +3,7 @@ function formatNumber (n) {
   return str[1] ? str : `0${str}`
 }
 
-export function formatTime (date) {
+function formatTime (date) {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -18,7 +18,47 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
+export function post (url, body) {
+  let serverPath = 'https://api2.huanjiaohu.com'
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: serverPath + url,
+      data: body,
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success (res) {
+        resolve(res.data) // 把返回的数据传出去
+      },
+      fail (ret) {
+        reject(ret) // 把错误信息传出去
+      }
+    })
+  })
+}
+export function get (url) {
+  let serverPath = 'https://api2.huanjiaohu.com'
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: serverPath + url,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success (res) {
+        resolve(res.data) // 把返回的数据传出去
+      },
+      fail (ret) {
+        reject(ret) // 把错误信息传出去
+      }
+    })
+  })
+}
+
 export default {
   formatNumber,
-  formatTime
+  formatTime,
+  post,
+  get
 }
