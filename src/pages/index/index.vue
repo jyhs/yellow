@@ -48,7 +48,7 @@ export default {
   },
   async mounted () {
     const markers = []
-    const serviceList = await this.$post('/yellow/service/list', {'provinces': 'sh'})
+    const serviceList = await this.$post('/yellow/service/list', {'provinces': 'china'})
     for (let item of serviceList) {
       let marker = this.createMarker(item)
       markers.push(marker)
