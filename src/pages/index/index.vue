@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-      <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controls="controls" @controltap="controltap" :include-points="includePoints" :markers="markers" @markertap="markertap" @regionchange="regionchange" @tap="hidentap" show-location :style="winStyle"></map>
+      <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange" @tap="hidentap" show-location :style="winStyle"></map>
       <div v-show="showDetail" class="all-bg">
       <cover-image class='bg' src='/static/dw_bg.png'></cover-image>
       <cover-image src='/static/dw_call.png' @click='callSomeone' class='dw_call'></cover-image>
-      <cover-image src='/static/dw_msg.png' class='dw_msg'></cover-image>
-      <cover-image src='https://api2.huanjiaohu.com/user/getAvatar?userId=5157' class='dw_head'></cover-image>
-      <cover-view class='dw-text-body'>立即购买大是大非水电费水电费水电费水电费水电费沙发上发呆水电费水电费给对方更好</cover-view>
-      <cover-view class='dw-text-name'>秋天的故事</cover-view>
-      <cover-view class='dw-text-address1'>上海市浦东新区</cover-view>
+      <cover-image :src='service.iconPath' class='dw_head'></cover-image>
+      <cover-view class='dw-text-body'>{{service.description}}</cover-view>
+      <cover-view class='dw-text-name'>{{service.name}}</cover-view>
+      <cover-view class='dw-text-address1'>{{service.cityName}}</cover-view>
       </div>
   </div>
 </template>
@@ -17,32 +16,16 @@
 export default {
   data () {
     return {
-      types: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
-      typeIndex: 3,
+      service: {
+        iconPath: 'https://api2.huanjiaohu.com/user/getAvatar?userId=5157',
+        name: '',
+        cityName: ''
+      },
       scale: 10,
-      colors: ['light', 'stable', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'royal', 'dark'],
-      colorIndex: 4,
-      position: 'bottomRight',
-      centerX: 113.3245211,
-      centerY: 23.10229,
+      centerX: 121.475186,
+      centerY: 31.228725,
       winStyle: 'width: 100%; height: 400px;',
       markers: [],
-      includePoints: [{
-        latitude: 30.279383,
-        longitude: 120.131441
-      }],
-      controls: [{
-        id: 1,
-        iconPath: '/static/location-control.png',
-        position: {
-          left: 0,
-          top: 10,
-          width: 40,
-          height: 40
-        },
-        clickable: true
-      }],
-      popupVisible: false,
       showDetail: false
     }
   },
@@ -73,19 +56,24 @@ export default {
       })
     },
     regionchange (e) {
-      console.log(e.type)
       if (e.type === 'end') {
         this.scale = e.scale
       }
     },
     markertap (e) {
       this.showDetail = true
+      let maker = null
+      for (let item of this.markers) {
+        if (item.id === e.mp.markerId) {
+          maker = item
+        }
+      }
+      this.service = maker
     },
     hidentap (e) {
       this.showDetail = false
     },
     controltap (e) {
-      console.log(e.controlId)
       this.moveToLocation()
     },
     moveToLocation: function () {
@@ -105,7 +93,13 @@ export default {
         latitude: latitude,
         longitude: longitude,
         width: 50,
-        height: 48
+        height: 48,
+        userId: point.user_id,
+        cityName: point.city_name,
+        location: point.location,
+        phone: point.phone,
+        title: point.title,
+        description: point.description
       }
       return marker
     }
