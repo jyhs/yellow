@@ -2,6 +2,8 @@
   <div class="container">
       <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange" @tap="hidentap" show-location :style="winStyle"></map>
       <div v-show="showDetail" class="all-bg">
+              <cover-view class='dw-bg'></cover-view>
+
       <cover-image class='bg' src='/static/dw_bg.png'></cover-image>
       <cover-image src='/static/dw_call.png' @click='callSomeone' class='dw_call'></cover-image>
       <cover-image :src='service.iconPath' class='dw_head'></cover-image>
@@ -24,7 +26,8 @@ export default {
         cityName: '',
         location: '',
         title: '',
-        description: ''
+        description: '',
+        phone: ''
       },
       scale: 10,
       centerX: 121.475186,
@@ -46,7 +49,7 @@ export default {
   methods: {
     callSomeone () {
       wx.makePhoneCall({
-        phoneNumber: '158XXXXXXXX'
+        phoneNumber: this.service.phone
       })
     },
     getUserInfo () {
@@ -164,7 +167,7 @@ export default {
   position: absolute;
   left: auto;
   right: auto;
-  bottom: 3%;
+  bottom: 1%;
 }
 .dw-text-body{
   width:90% ;
