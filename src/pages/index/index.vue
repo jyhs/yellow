@@ -8,7 +8,7 @@
       <cover-image :src='service.iconPath' class='dw_head'></cover-image>
       <cover-view class='dw-text-body'>{{service.description}}</cover-view>
       <cover-view class='dw-text-name'>{{service.name}}</cover-view>
-      <cover-view class='dw-text-cityName'></cover-view>
+      <cover-view class='dw-text-type'>{{service.type}}</cover-view>
       <cover-view class='dw-text-location'>{{service.location}}</cover-view>
       <cover-view class='dw-text-title'>{{service.title}}</cover-view>
       </div>
@@ -26,7 +26,8 @@ export default {
         location: '',
         title: '',
         description: '',
-        phone: ''
+        phone: '',
+        type: ''
       },
       scale: 10,
       centerX: 121.475186,
@@ -106,7 +107,9 @@ export default {
         location: point.location,
         phone: point.phone,
         title: point.title,
-        description: point.description
+        description: point.description,
+        type: point.type,
+        callout: {}
       }
       return marker
     }
@@ -197,7 +200,7 @@ export default {
   background-color:white;
   border:solid 4px white;
 }
-.dw-text-cityName{
+.dw-text-type{
   width: 25%;
   bottom: 34%;
   position:absolute;
