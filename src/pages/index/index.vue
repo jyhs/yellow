@@ -8,7 +8,7 @@
       <cover-image :src='service.iconPath' class='dw_head'></cover-image>
       <cover-view class='dw-text-body'>{{service.description}}</cover-view>
       <cover-view class='dw-text-name'>{{service.name}}</cover-view>
-      <cover-view class='dw-text-cityName'>{{service.cityName}}</cover-view>
+      <cover-view class='dw-text-cityName'></cover-view>
       <cover-view class='dw-text-location'>{{service.location}}</cover-view>
       <cover-view class='dw-text-title'>{{service.title}}</cover-view>
       </div>
@@ -194,6 +194,7 @@ export default {
   bottom:38%;
   position:absolute;
   left:10%;
+  background-color:white;
   border:solid 4px white;
 }
 .dw-text-cityName{
