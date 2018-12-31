@@ -169,14 +169,14 @@ export default {
   bottom: 1%;
 }
 .dw-text-body{
-  width:90% ;
+  width:85% ;
   top: 76%;
   position:absolute;
   font-size:12px;
   white-space:normal;
   left: 8%;
   color: #777;
-  line-height:2;
+  line-height:1.5;
 }
 .dw-text-name{
   width: 50%;
@@ -185,6 +185,7 @@ export default {
   font-size:18px;
   white-space:normal;
   left: 8%;
+  line-height:1.4;
   white-space:normal;
 }
 .dw_head{
@@ -218,13 +219,14 @@ export default {
   color:#777;
 }
 .dw-text-title{
-  width: 70%;
+  width: 85%;
   bottom: 24%;
   position:absolute;
   font-size:15px;
   white-space:normal;
   left:8%;
   color:rgb(17, 130, 196);
+  line-height: 1.8;
 }
 .all-bg{
   width: 94%;
