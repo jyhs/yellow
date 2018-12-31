@@ -1,10 +1,9 @@
 <template>
   <div class="container">
-      <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange" @tap="hidentap" show-location :style="winStyle"></map>
+      <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange"  show-location :style="winStyle"></map>
       <div v-show="showDetail" class="all-bg">
-              <cover-view class='dw-bg'></cover-view>
-
-      <cover-image class='bg' src='/static/dw_bg.png'></cover-image>
+      <cover-view class='dw-bg' @click="hidentap"></cover-view>
+      <cover-image class='bg' src='/static/dw_bg.png' ></cover-image>
       <cover-image src='/static/dw_call.png' @click='callSomeone' class='dw_call'></cover-image>
       <cover-image :src='service.iconPath' class='dw_head'></cover-image>
       <cover-view class='dw-text-body'>{{service.description}}</cover-view>
@@ -157,7 +156,7 @@ export default {
 .dw_call{
   width: 70px;
   height: 30px;
-  bottom:5%;
+  bottom:3%;
   position:absolute;
   right: 8%;
 }
@@ -171,7 +170,7 @@ export default {
 }
 .dw-text-body{
   width:90% ;
-  top: 74%;
+  top: 76%;
   position:absolute;
   font-size:12px;
   white-space:normal;
@@ -181,7 +180,7 @@ export default {
 }
 .dw-text-name{
   width: 50%;
-  bottom: 35%;
+  bottom: 34%;
   position:absolute;
   font-size:18px;
   white-space:normal;
@@ -189,16 +188,17 @@ export default {
   white-space:normal;
 }
 .dw_head{
-  width:49px;
-  height:49px;
+  width:50px;
+  height:50px;
   border-radius:50%;
-  bottom:39%;
+  bottom:38%;
   position:absolute;
-  left:13%;
+  left:10%;
+  border:solid 4px white;
 }
 .dw-text-cityName{
   width: 25%;
-  bottom: 35%;
+  bottom: 34%;
   position:absolute;
   font-size:15px;
   white-space:normal;
@@ -209,7 +209,7 @@ export default {
 }
 .dw-text-location{
   width: 70%;
-  bottom: 32%;
+  bottom: 31%;
   position:absolute;
   font-size:12px;
   white-space:normal;
@@ -218,7 +218,7 @@ export default {
 }
 .dw-text-title{
   width: 70%;
-  bottom: 26%;
+  bottom: 24%;
   position:absolute;
   font-size:15px;
   white-space:normal;
@@ -228,5 +228,18 @@ export default {
 .all-bg{
   width: 94%;
   left: 5%;
+}
+.cover-view
+{
+  line-height: 1;
+}
+.dw-bg
+{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,.6)
 }
 </style>
