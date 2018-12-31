@@ -179,14 +179,13 @@ export default {
   line-height:1.5;
 }
 .dw-text-name{
-  width: 50%;
+  width: 60%;
   bottom: 34%;
   position:absolute;
   font-size:18px;
-  white-space:normal;
+  white-space:nowrap;
   left: 8%;
   line-height:1.4;
-  white-space:normal;
 }
 .dw_head{
   width:50px;
