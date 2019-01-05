@@ -6,7 +6,7 @@
       <cover-view class='dw-bg' @click="hidentap"></cover-view>
       <cover-image class='bg' src='/static/dw_bg.png' ></cover-image>
       <cover-image src='/static/dw_call.png' @click='callSomeone' class='dw_call'></cover-image>
-      <cover-image :src='service.iconPath' class='dw_head'></cover-image>
+      <cover-image :src='service.iconHead' class='dw_head'></cover-image>
       <cover-view class='dw-text-body'>{{service.description}}</cover-view>
       <cover-view class='dw-text-name'>{{service.name}}</cover-view>
       <cover-view class='dw-text-type'>{{service.type}}</cover-view>
@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       service: {
-        iconPath: 'https://api2.huanjiaohu.com/user/getAvatar?userId=5157',
+        iconHead: 'https://api2.huanjiaohu.com/user/getAvatar?userId=5157',
         name: '',
         cityName: '',
         location: '',
@@ -115,7 +115,8 @@ export default {
         title: point.title,
         description: point.description,
         type: point.type,
-        callout: {}
+        callout: {},
+        iconHead: 'https://api2.huanjiaohu.com/user/getLocationAvatar?userId=' + point.user_id
       }
       return marker
     }
