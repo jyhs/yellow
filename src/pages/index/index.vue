@@ -101,7 +101,7 @@ export default {
         longitude: longitude
       }
       let marker = {
-        iconPath: 'https://api2.huanjiaohu.com/user/getLocationAvatar?userId=' + point.user_id,
+        // iconPath: 'https://api2.huanjiaohu.com/user/getLocationAvatar?userId=' + point.user_id,
         id: point.id || 0,
         name: point.name || '',
         latitude: latitude,
