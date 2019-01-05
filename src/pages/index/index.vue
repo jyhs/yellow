@@ -1,6 +1,7 @@
 <template>
   <div class="container">
       <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange"  show-location :style="winStyle"></map>
+      <cover-image class='kefu' src='/static/kefu.png' @click="gotoService"></cover-image>
       <div v-show="showDetail" class="all-bg">
       <cover-view class='dw-bg' @click="hidentap"></cover-view>
       <cover-image class='bg' src='/static/dw_bg.png' ></cover-image>
@@ -47,6 +48,11 @@ export default {
     this.markers = markers
   },
   methods: {
+    gotoService () {
+      wx.navigateTo({
+        url: '../help/main'
+      })
+    },
     callSomeone () {
       wx.makePhoneCall({
         phoneNumber: this.service.phone
@@ -140,6 +146,13 @@ export default {
         this.winStyle = 'width:' + mapWidth + 'px;height:' + mapHeight + 'px;'
       }
     })
+  },
+  onShareAppMessage (options) {
+    return {
+      title: '礁岩海水到位服务',
+      imageUrl: '/static/daowei.jpg'
+      // path: '/page/user?id=123'
+    }
   }
 
 }
@@ -246,5 +259,12 @@ export default {
   top:0;
   left: 0;
   background-color: rgba(0,0,0,.6)
+}
+.kefu{
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
 }
 </style>
