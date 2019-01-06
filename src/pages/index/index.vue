@@ -216,7 +216,7 @@ export default {
 }
 .dw-text-type{
   width: 25%;
-  bottom: 34%;
+  bottom: 34.5%;
   position:absolute;
   font-size:15px;
   white-space:normal;
@@ -226,11 +226,11 @@ export default {
   text-align:right;
 }
 .dw-text-location{
-  width: 70%;
+  width: 84%;
   bottom: 31%;
   position:absolute;
   font-size:12px;
-  white-space:normal;
+  white-space:nowrap;
   left:8%;
   color:#777;
 }
