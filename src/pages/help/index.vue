@@ -25,7 +25,13 @@ export default {
 
     }
   },
-
+  onShareAppMessage (options) {
+    return {
+      title: '礁岩海水帮助',
+      imageUrl: '/static/daowei.jpg',
+      path: '/pages/help/main'
+    }
+  },
   methods: {
     gotoMap () {
       wx.navigateBack()
