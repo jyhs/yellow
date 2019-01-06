@@ -115,7 +115,7 @@ export default {
         description: point.description,
         type: point.type,
         callout: {},
-        iconHead: 'https://api2.huanjiaohu.com/user/getAvatar?userId=' + point.user_id
+        iconPath: 'https://api2.huanjiaohu.com/user/getAvatar?userId=' + point.user_id
       }
       return marker
     }
@@ -151,7 +151,6 @@ export default {
     return {
       title: '礁岩海水到位服务',
       imageUrl: '/static/daowei.jpg'
-      // path: '/page/user?id=123'
     }
   }
 
