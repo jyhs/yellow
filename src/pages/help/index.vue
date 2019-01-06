@@ -1,14 +1,19 @@
 <template>
   <div class="container">
     <h1 class="title_head">礁岩海水到位服务帮助</h1>
-    <span class="text_info one ">欢迎访问礁岩海水到位服务，本系统汇集全国各地商家、工作室等资源，方便用户之间沟通，商家用户想加入，请及时联系我们，以便我们帮您加进体统。</span>
-    <span class="text_info two">如需其他团购、生物资料等服务，请点击此按钮跳转至礁岩海水小程序首页。</span>
-    <button class="button_index" @click='gotoJyhs'>礁岩海水首页</button>  
-    <span class="text_info three">大家的支持，是我们服务向前的动力，祝大家在礁岩海水玩的愉快。谢谢大家！</span>
-    <span class="text_info four">关注<span style="color:red">环礁湖微信服务号</span>，即可获得在线帮助。</span>
-    <span>
-    <button open-type="contact" class="button_contact"> 在线帮助</button>
-    <button class="button_goback" @click="gotoMap"> 返回</button>
+    <p class="text_info">
+      <span><strong>服务是海水商业的灵魂！</strong></span>
+      <span>礁岩海水到位服务能够让鱼友快速找到自己附近的工作室服务以及商家：</span>
+      <span>无论是在<i>加热棒坏掉</i>的冬天，还是在<i>水管漏水</i>的夜晚，还是在<i>上水泵突然挂掉</i>的时候，附近的商家和工作室一定最靠谱的<i class="red">解决方案</i>。</span>
+      <span>附近的器材和设备销售商也可以让你以最快的速度，甚至是同城当天收到货，无需等待明天或后天从异地寄来的包裹！一睹为快！</span>
+      <span>如果鱼友需要稳定的鱼缸维护服务或者测量水质，也可以问问附近的商家或者工作室是否愿意承接，附近的永远是响应最快的！</span>
+      <span>附近的商家或工作室也是你参加团购的重要选择，他们可以 帮你过温过水，也可以想办法让你半夜10点下班后还安全的拿到你今天团的鱼！</span>
+      <span>其实，附近商家虽然提供的服务不尽相同，但<i class="red">礁岩海水相信，他们一定希望能够竭诚为鱼友提供服务！</i>礁岩海水到位服务帮助本地零售商以及工作室快速分享自己的位置，以及能够提供的各种服务，让附近的客户迅速找到自己！</span>
+
+
+    </p>
+    <button open-type="contact" class="button_contact">在线帮助</button>
+    <button class="button_goback" @click="gotoMap">礁岩海水</button>
     </span>
   </div>
 </template>
@@ -44,29 +49,33 @@ export default {
   right: 5%;
 }
 .title_head{
-  position:absolute;
   top: 8%;
   font-size:  20px;
+  padding-top:15px;
+  padding-bottom:15px;
 }
 .text_info{
-  width:85% ;
-  position:absolute;
+  width:88% ;
   font-family: HelveticaNeue,Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #9b9b9b;
-  text-align: justify;
+  text-align: left;
+  line-height:1.3em;
 }
-.one {
-  top: 18%;
+.text_info > span
+{
+  display:block;
+  padding-bottom:10px;
 }
-.two {
-  top: 35%;
-}     
-.three {
-  top: 56%;
+.text_info i
+{
+  color:#333;
+  display:inline;
 }
-.four {
-  top: 65%;
+.text_info i.red
+{
+  color:red;
+  display:inline;
 }
 .button_index{
   width:120px ;
@@ -85,17 +94,20 @@ export default {
   right: 0;
   border-radius: 0;
   color: white;
-  width: 60%;
-  background-image: url('https://static.huanjiaohu.com/icon/phone.png');
+  width: 50%;
+  background-image: url('https://static.huanjiaohu.com/icon/dw_wechat.png');
   background-repeat: no-repeat;
+  background-position-x:44px;
+  background-position-y:12px;
+  padding-left:50px;
 }
 .button_goback{
-  background-color: #5d5d5d;
+  background-color: #2D9AE7;
   position: absolute;
   bottom: 0;
   left: 0;
   border-radius: 0;
   color: white;
-  width: 40%;
+  width: 50%;
 }
 </style>
