@@ -265,5 +265,23 @@ export default {
   position: absolute;
   top: 5%;
   right: 5%;
+  animation:twinkling 2s 3 ease-in-out;
+}
+@-webkit-keyframes twinkling {
+	0% {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-webkit-transform:scale(1);
+}
+50% {
+	opacity:1;
+	filter:alpha(opacity=100);
+	-webkit-transform:scale(1.12);
+}
+100% {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-webkit-transform:scale(1);
+}
 }
 </style>
