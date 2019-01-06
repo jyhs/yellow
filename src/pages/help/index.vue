@@ -86,6 +86,8 @@ export default {
   border-radius: 0;
   color: white;
   width: 60%;
+  background-image: url('https://static.huanjiaohu.com/icon/phone.png');
+  background-repeat: no-repeat;
 }
 .button_goback{
   background-color: #5d5d5d;
