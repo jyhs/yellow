@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <map id="myMap"  :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange"  show-location :style="winStyle"></map>
+      <map id="myMap" :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange"  show-location :style="winStyle"></map>
       <cover-image class='kefu' src='/static/kefu.png' @click="gotoService"></cover-image>
       <div v-show="showDetail" class="all-bg">
       <cover-view class='dw-bg' @click="hidentap"></cover-view>
@@ -101,7 +101,6 @@ export default {
         longitude: longitude
       }
       let marker = {
-        // iconPath: 'https://api2.huanjiaohu.com/user/getLocationAvatar?userId=' + point.user_id,
         id: point.id || 0,
         name: point.name || '',
         latitude: latitude,
@@ -116,7 +115,7 @@ export default {
         description: point.description,
         type: point.type,
         callout: {},
-        iconHead: 'https://api2.huanjiaohu.com/user/getLocationAvatar?userId=' + point.user_id
+        iconHead: 'https://api2.huanjiaohu.com/user/getAvatar?userId=' + point.user_id
       }
       return marker
     }
