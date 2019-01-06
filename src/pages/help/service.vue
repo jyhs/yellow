@@ -22,22 +22,12 @@ export default {
   },
 
   methods: {
-    onShareAppMessage (res) {
-      if (res.from === 'menu') {
-      // 来自页面内转发按钮
-        console.log(res.target)
-      }
-      return {
-        title: '自定义转发标题',
-        path: '/page/user?id=123'
-      }
-    },
     gotoMap () {
       wx.navigateBack()
     },
     gotoJyhs () {
       wx.navigateToMiniProgram({
-        appId: ''
+        appId: 'wx9f635f06da7360d7'
       })
     }
   }
