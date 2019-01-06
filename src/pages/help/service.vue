@@ -3,7 +3,7 @@
     <h1 class="title_head">礁岩海水到位服务帮助</h1>
     <span class="text_info one ">欢迎访问礁岩海水到位服务，本系统汇集全国各地商家、工作室等资源，方便用户之间沟通，商家用户想加入，请及时联系我们，以便我们帮您加进体统。</span>
     <span class="text_info two">如需其他团购、生物资料等服务，请点击此按钮跳转至礁岩海水小程序首页。</span>
-    <button class="button_index" >礁岩海水首页</button>  
+    <button class="button_index" @click='gotoJyhs'>礁岩海水首页</button>  
     <span class="text_info three">大家的支持，是我们服务向前的动力，祝大家在礁岩海水玩的愉快。谢谢大家！</span>
     <span class="text_info four">关注<span style="color:red">环礁湖微信服务号</span>，即可获得在线帮助。</span>
     <span>
