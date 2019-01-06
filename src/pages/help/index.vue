@@ -13,7 +13,7 @@
 
     </p>
     <button open-type="contact" class="button_contact">在线帮助</button>
-    <button class="button_goback" @click="gotoMap">礁岩海水</button>
+    <button class="button_goback" @click="gotoJyhs">礁岩海水</button>
     </span>
   </div>
 </template>
@@ -25,7 +25,13 @@ export default {
 
     }
   },
-
+  onShareAppMessage (options) {
+    return {
+      title: '礁岩海水帮助',
+      imageUrl: '/static/daowei.jpg',
+      path: '/pages/help/main'
+    }
+  },
   methods: {
     gotoMap () {
       wx.navigateBack()
