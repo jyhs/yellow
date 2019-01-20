@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "礁岩鱼圈",
+  "usingComponents": {
+    "wux-tabs": "/static/wux/tabs/index",
+    "wux-tab": "/static/wux/tab/index",
+    "wux-badge": "/static/wux/badge/index",
+    "wux-white-space": "/static/wux/white-space/index",
+    "wux-gallery": "/static/wux/gallery/index",
+    "wux-col": "/static/wux/col/index",
+    "wux-image": "/static/wux/image/index",
+    "wux-icon": "/static/wux/icon/index"
+  }
+}

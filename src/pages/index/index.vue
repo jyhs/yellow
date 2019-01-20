@@ -2,6 +2,7 @@
   <div class="container">
       <map id="myMap" :longitude="centerX" :latitude="centerY" :scale="scale" @controltap="controltap"  :markers="markers" @markertap="markertap" @regionchange="regionchange"  show-location :style="winStyle"></map>
       <cover-image class='kefu' src='/static/kefu.png' @click="gotoService"></cover-image>
+      <cover-image class='pyq' src='/static/location-control.png' @click="gotoPyq"></cover-image>
       <div v-show="showDetail" class="all-bg">
       <cover-view class='dw-bg' @click="hidentap"></cover-view>
       <cover-image class='bg' src='/static/dw_bg.png' ></cover-image>
@@ -51,6 +52,11 @@ export default {
     gotoService () {
       wx.navigateTo({
         url: '../help/main'
+      })
+    },
+    gotoPyq () {
+      wx.navigateTo({
+        url: '../friends/main'
       })
     },
     callSomeone () {
@@ -264,6 +270,14 @@ export default {
   height: 55px;
   position: absolute;
   top: 5%;
+  right: 5%;
+  animation:twinkling 2s 3 ease-in-out;
+}
+.pyq{
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: 15%;
   right: 5%;
   animation:twinkling 2s 3 ease-in-out;
 }

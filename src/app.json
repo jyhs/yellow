@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/help/main"
+    "pages/help/main",
+    "pages/publish/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
